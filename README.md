@@ -34,3 +34,35 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+'use client';
+
+import { useAuth } from "@/context/AuthContext";
+
+export default function SomeComponent() {
+  const { connectWallet, isAuthenticated, currentAccount } = useAuth();
+
+  return (
+    <div>
+      {!isAuthenticated ? (
+        <button onClick={connectWallet}>Connect Wallet</button>
+      ) : (
+        <p>Connected: {currentAccount}</p>
+      )}
+    </div>
+  );
+}
+
+// in layout.js
+
+<Toaster
+  toastOptions={{
+    style: {
+      background: '#111',
+      color: '#fff',
+      border: '1px solid #444',
+    },
+    duration: 3000,
+  }}
+/>
