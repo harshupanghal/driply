@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Search } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
+import Link from "next/link";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(true);
@@ -62,8 +63,8 @@ const Navbar = () => {
       `}
     >
       <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-4 md:px-8 lg:px-12 xl:px-16">
-        <a href="/" className="text-2xl font-extrabold text-gray-100">driply</a>
 
+<Link href={"/"} className="text-2xl font-extrabold text-gray-100">driply</Link>
         <div className="flex items-center gap-4 lg:gap-6">
           <div className="relative hidden md:block">
             <Search className="absolute left-3 top-1/2 h-5 w-5 text-xs -translate-y-1/2 text-gray-500" />
